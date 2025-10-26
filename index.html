@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berawal dari Penasaran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #222831;
+            --bg-secondary: #31363F;
+            --accent: #76ABAE;
+            --text-primary: #EEEEEE;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(49, 54, 63, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(118, 171, 174, 0.3);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            /* Tambahkan order: -1 agar logo selalu di kiri saat mobile */
+            order: -1; 
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            /* Pastikan hamburger berada di paling kanan pada mobile */
+            order: 1; 
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: 2rem;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 300;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.3s forwards;
+        }
+
+        .cta-button {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.6s forwards;
+        }
+
+        .cta-button:hover {
+            background: var(--text-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(118, 171, 174, 0.3);
+        }
+
+        /* Story Section */
+        .story {
+            padding: 5rem 5%;
+            background: var(--bg-primary);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .story-text p {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .story-text i {
+            color: #e74c3c;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 400px;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Tambahkan filter untuk kesan artistik seperti satelit */
+            filter: grayscale(10%) contrast(110%);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5rem 5%;
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        .process-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(118, 171, 174, 0.3);
+        }
+
+        .process-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .process-card h3 {
+            font-size: clamp(1.3rem, 2vw, 1.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .process-card p {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            color: rgba(238, 238, 238, 0.8);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 5%;
+            background: var(--bg-primary);
+        }
+
+        .gallery-grid {
+            display: grid;
+            /* Default untuk Desktop: 3 kolom */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        /* ATURAN UNTUK RASIO 4:5 */
+        .gallery-item {
+            position: relative;
+            /* Properti aspect-ratio memastikan rasio 4:5 di semua ukuran layar/device */
+            aspect-ratio: 4 / 5; 
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s ease;
+        }
+        /* AKHIR ATURAN RASIO 4:5 */
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(118, 171, 174, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* FIX UNTUK OVERLAY AGAR MEMENUHI SUDUT */
+        .gallery-overlay {
+            position: absolute;
+            /* Perbaikan: dorong ke bawah 1px untuk menelan celah subpixel */
+            bottom: -1px; 
+            left: 0;
+            right: 0;
+            /* Ubah padding agar lebih simetris di dalam overlay */
+            padding: 10px;
+            background: linear-gradient(transparent, rgba(34, 40, 49, 0.596));
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            /* PENTING: Tambahkan radius di bagian bawah agar mengisi sudut parent item */
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        /* AKHIR FIX UNTUK OVERLAY */
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* START: PERUBAHAN FONT KETERANGAN FOTO (OVERLAY) */
+        .gallery-overlay h4 {
+            font-size: 13px; 
+            font-weight: 100; 
+            color: cornsilk;
+            margin-bottom: -4px; /* Hilangkan margin bawah agar lebih rapi */
+        }
+        /* END: PERUBAHAN FONT KETERANGAN FOTO (OVERLAY) */
+
+        .view-all-btn {
+            display: block;
+            margin: 0 auto;
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        /* Before-After Section */
+        .before-after {
+            padding: 5rem 5%;
+            background: var(--bg-secondary);
+        }
+
+        .comparison-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            /* Rasio 16:9 untuk tampilan horizontal */
+            aspect-ratio: 16 / 9; 
+            height: auto; 
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .comparison-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* START: Aturan untuk mencegah blocking (selection) dan dragging */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE/Edge */
+            user-select: none;         /* Standard (Mencegah pemilihan/blocking) */
+            -webkit-user-drag: none;   /* Disable dragging on WebKit (Mencegah dragging) */
+            /* END: Aturan untuk mencegah blocking dan dragging */
+        }
+
+        .after-img {
+            clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+        }
+
+        .slider-line {
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            background: var(--accent);
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-primary);
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-labels {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            font-weight: 500;
+        }
+
+        .before-after-text {
+            text-align: center;
+            max-width: 700px;
+            margin: 2rem auto 0;
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            font-style: italic;
+        }
+
+        /* Journal Section */
+        .journal {
+            padding: 5rem 5%;
+            background: var(--bg-primary);
+        }
+
+        .journal-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .journal-card {
+            background: var(--bg-secondary);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .journal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(118, 171, 174, 0.3);
+        }
+
+        .journal-img {
+            width: 100%;
+            /* START: PERUBAHAN UNTUK RASIO 16:9 */
+            aspect-ratio: 16 / 9; /* Tetapkan rasio 16:9 */
+            height: auto; /* Biarkan tinggi menyesuaikan */
+            /* END: PERUBAHAN UNTUK RASIO 16:9 */
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .journal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Tambahkan filter untuk kesan lebih gelap */
+            filter: brightness(80%); 
+
+            /* ATURAN UNTUK MENCEGAH BLOCKING DAN DRAGGING PADA GAMBAR JURNAL */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE/Edge */
+            user-select: none;         /* Standard (Mencegah pemilihan/blocking) */
+            -webkit-user-drag: none;   /* Disable dragging on WebKit (Mencegah dragging) */
+            /* AKHIR ATURAN UNTUK MENCEGAH BLOCKING DAN DRAGGING PADA GAMBAR JURNAL */
+        }
+
+        .journal-content {
+            padding: 1.5rem;
+        }
+
+        .journal-content h3 {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+        }
+
+        .journal-content p {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            color: rgba(238, 238, 238, 0.8);
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-subtitle {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            margin-bottom: 2rem;
+            color: rgba(238, 238, 238, 0.8);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 0;
+        }
+
+        .social-icons a {
+            color: var(--accent);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--text-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-primary);
+            border-top: 1px solid rgba(118, 171, 174, 0.3);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            color: rgba(238, 238, 238, 0.7);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        /* Ganti div lightboxImg menjadi img */
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--text-primary);
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        
+        @media (max-width: 992px) {
+            /* --- PERUBAHAN UTAMA: GALERI (Gallery) AKTIF 2 KOLOM HINGGA 992px --- */
+            .gallery-grid {
+                /* Menjadi 2 kolom di layar tablet dan sebagian besar perangkat mobile */
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* -------------------------------------------------------------------- */
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                /* START: PERUBAHAN POSISI MENU MOBILE */
+                /* Karena hamburger sudah di kanan, menu dropdown harus mulai dari kanan */
+                left: auto; /* Hilangkan left: 0 */
+                right: 0; /* Taruh di kanan */
+                width: 30%; 
+                /* END: PERUBAHAN POSISI MENU MOBILE */
+
+                position: fixed;
+                top: 60px;
+                flex-direction: column;
+                background: rgba(49, 54, 63, 0.98);
+                
+                /* START: Dropdown from Top Effect */
+                max-height: 0; 
+                overflow: hidden; 
+                
+                /* MENGUBAH: Mengurangi padding vertikal dari 0 menjadi 1.5rem */
+                padding: 0 2rem; 
+                
+                /* MENGUBAH: Mengurangi gap antar item dari 0 menjadi 0.5rem */
+                gap: 0;
+                
+                transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, gap 0.5s ease-in-out; 
+                /* END: Dropdown from Top Effect */
+                
+                /* Tambahkan bayangan ke menu dropdown agar lebih terlihat */
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            }
+            
+            /* --- PENTING: Perubahan pada Navbar agar logo dan hamburger bertukar posisi --- */
+            .navbar {
+                 /* Menggunakan Flexbox Order untuk menukar posisi hanya pada mobile */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            /* --- AKHIR PERUBAHAN PENTING --- */
+
+
+            .nav-menu.active {
+                /* Aktifkan efek dropdown */
+                max-height: 400px; 
+                
+                /* MENGUBAH: Padding diubah dari 2rem menjadi 1.5rem (lebih rapat) */
+                padding: 1.5rem 2rem; 
+                
+                /* MENGUBAH: Gap diubah dari 1rem menjadi 0.5rem (lebih rapat) */
+                gap: 0.5rem; 
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                text-align: right; /* Rata kanan untuk link menu */
+            }
+            
+            .nav-menu a {
+                display: block;
+                
+                /* MENGUBAH: Padding vertikal pada link diubah dari 0.5rem menjadi 0.4rem (lebih rapat) */
+                padding: 0.4rem 0;
+            }
+
+
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+
+            .process-cards,
+            .journal-cards {
+                grid-template-columns: 1fr;
+            }
+
+            /* Sesuaikan tinggi Before-After di mobile agar tetap responsif */
+            .comparison-container {
+                aspect-ratio: 16 / 9; 
+                height: auto; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                /* Menjadi 2 kolom di layar tablet dan sebagian besar perangkat mobile */
+                grid-template-columns: repeat(2, 1fr);
+            }            
+            /* Tambahkan padding agar menu dropdown di mobile terlihat lebih rapi */
+            .nav-menu {
+                width: 50%; 
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+<nav class="navbar">
+        <div class="logo">
+            <span style="color: #76ABAE;">Linnopixel</span>
+        </div>
+        <!-- Menu hamburger dipindahkan ke kanan -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- Menu itu sendiri -->
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#story">Story</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#before-after">Before–After</a></li>
+            <li><a href="#journal">Journal</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    
+
+<section class="hero" id="home">
+        <h1>Berawal dari Penasaran</h1>
+        <p>Dari rasa penasaran terhadap dunia luar menjadi inspirasi.</p>
+        <button class="cta-button" onclick="document.getElementById('gallery').scrollIntoView({behavior: 'smooth'})">Lihat Galeri</button>
+    </section>
+
+    
+
+<section class="story reveal" id="story">
+        <div class="story-content">
+            <div class="story-text">
+                <p style="text-align: justify;">Awalnya hanya sekedar suka mengakses banyak hal random di internet, lalu mulai ingin tau dimana posisi rumah, tempat dimana dia sering berkumpul bersama teman-teman nya hingga sekolahnya.</p>
+                <p style="text-align: justify;">Aku hanya ingin mencari informasi geografi seseorang. Memperbesar jalan, menelusuri gang, dan memperhatikan warna langit yang terekam kamera.</p>
+            </div>
+            <div class="story-image">
+                
+
+<img src="https://placehold.co/800x400/31363F/76ABAE?text=Peta+Satellit+Seni" alt="Peta Satelit Artistik" onerror="this.onerror=null; this.src='https://placehold.co/800x400/31363F/76ABAE?text=Peta+Satellit+Seni';" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    
+
+<section class="process reveal" id="process">
+        <div class="process-cards">
+            <div class="process-card">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h3>Mencari</h3>
+                <p>Eksplorasi Google Maps untuk menemukan sudut pandang unik dari berbagai lokasi di seluruh dunia.</p>
+            </div>
+            <div class="process-card">
+                <i class="fa-solid fa-eye"></i>
+                <h3>Menemukan</h3>
+                <p>Memilih potongan citra satelit yang memiliki komposisi, warna, dan cerita menarik untuk dieksplorasi.</p>
+            </div>
+            <div class="process-card">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h3>Mengubah</h3>
+                <p>Menghadirkan perspektif baru dari yang penuh dengan keindahan.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+<section class="gallery reveal" id="gallery">
+        <h2 class="section-title">Galeri Karya</h2>
+        <div class="gallery-grid">
+            
+
+<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi')">
+                <img src="https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi" alt="Cahaya Pagi di Gang Sepi" onerror="this.onerror=null; this.src='https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi';" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Cahaya Pagi di Gang Sepi</h4>
+                </div>
+            </div>
+            
+
+<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota')">
+                <img src="https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota" alt="Persimpangan Kota yang Ramai" onerror="this.onerror=null; this.src='https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota';" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Persimpangan Kota yang Ramai</h4>
+                </div>
+            </div>
+            
+
+<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial')">
+                <img src="https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial" alt="Pantai dari Ketinggian" onerror="this.onerror=null; this.src='https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial';" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Pantai dari Ketinggian</h4>
+                </div>
+            </div>
+            
+
+<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau')">
+                <img src="https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau" alt="Hamparan Sawah Hijau" onerror="this.onerror=null; this.src='https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau';" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Hamparan Sawah Hijau</h4>
+                </div>
+            </div>
+            
+
+<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan')">
+                <img src="https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan" alt="Senja di Pelabuhan" onerror="this.onerror=null; this.src='https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan';" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Senja di Pelabuhan</h4>
+                </div>
+            </div>
+            
+
+<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota')">
+                <img src="https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota" alt="Malam di Pusat Kota" onerror="this.onerror=null; this.src='https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota';" loading="lazy">
+                <div class="gallery-overlay">
+                    <h4>Malam di Pusat Kota</h4>
+                </div>
+            </div>
+        </div>
+        <button class="view-all-btn">Lihat Semua Koleksi</button>
+    </section>
+
+    
+
+<section class="before-after reveal" id="before-after">
+        <h2 class="section-title">Before & After</h2>
+        <div class="comparison-labels">
+            <span>Before</span>
+            <span>After</span>
+        </div>
+        <div class="comparison-container">
+            
+
+<img class="comparison-img" src="https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah" alt="Citra Mentah Sebelum Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah';" loading="lazy">
+            
+
+<img class="comparison-img after-img" src="https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai" alt="Karya Setelah Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai';" loading="lazy">
+            <div class="slider-line" id="sliderLine">
+                <div class="slider-handle">
+                    <i class="fa-solid fa-circle"></i>
+                </div>
+            </div>
+        </div>
+        <p class="before-after-text">"Setiap sentuhan mengubah suasana — bukan hanya warna, tapi juga cerita."</p>
+    </section>
+
+    
+
+<section class="journal reveal" id="journal">
+        <h2 class="section-title">Refleksi Perjalanan</h2>
+        <div class="journal-cards">
+            <div class="journal-card">
+                <div class="journal-img">
+                    
+
+<img src="https://placehold.co/400x225/222831/76ABAE?text=Gunung+dan+Jalan" alt="Gunung dan Jalan" onerror="this.onerror=null; this.src='https://placehold.co/400x225/222831/76ABAE?text=Gunung+dan+Jalan';" loading="lazy">
+                </div>
+                <div class="journal-content">
+                    <h3>Perspektif Baru</h3>
+                    <p>"Kadang keindahan datang dari tempat yang tak pernah kita niatkan untuk dilihat."</p>
+                </div>
+            </div>
+            <div class="journal-card">
+                <div class="journal-img">
+                    
+
+<img src="https://placehold.co/400x225/31363F/EEEEEE?text=Peta+Satelit" alt="Peta Satelit" onerror="this.onerror=null; this.src='https://placehold.co/400x225/31363F/EEEEEE?text=Peta+Satelit';" loading="lazy">
+                </div>
+                <div class="journal-content">
+                    <h3>Tersesat & Menemukan</h3>
+                    <p>"Dalam mencari, kita sering menemukan hal yang lebih berharga dari yang kita cari."</p>
+                </div>
+            </div>
+            <div class="journal-card">
+                <div class="journal-img">
+                    
+
+<img src="https://placehold.co/400x225/76ABAE/222831?text=Sentuhan+Akhir" alt="Sentuhan Akhir" onerror="this.onerror=null; this.src='https://placehold.co/400x225/76ABAE/222831?text=Sentuhan+Akhir';" loading="lazy">
+                </div>
+                <div class="journal-content">
+                    <h3>Rasa yang Mengubah</h3>
+                    <p>"Dari iseng menjadi cinta, dari mencari menjadi menciptakan."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+<section class="contact reveal" id="contact">
+        <h2 class="section-title">Mari Terhubung.</h2>
+        <div class="contact-content">
+
+            <div class="social-icons">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                
+
+<a href="#" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+                
+
+<a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    
+
+<footer class="footer">
+        <p>© 2025 Michellino. All Rights Reserved</p>
+    </footer>
+
+    
+
+<div class="lightbox" id="lightbox">
+        <i class="fa-solid fa-xmark lightbox-close" onclick="closeLightbox()"></i>
+        
+
+<img id="lightboxImg" src="" alt="Gambar Galeri Besar">
+    </div>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal');
+
+        function checkReveal() {
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 100;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkReveal);
+        checkReveal();
+
+        // Before-After Slider
+        const sliderLine = document.getElementById('sliderLine');
+        const comparisonContainer = document.querySelector('.comparison-container');
+        const afterImg = document.querySelector('.after-img');
+        let isDragging = false;
+
+        function updateSlider(e) {
+            if (!isDragging && e.type !== 'click' && e.type !== 'touchmove') return;
+
+            const rect = comparisonContainer.getBoundingClientRect();
+            let x;
+
+            if (e.touches && e.touches.length > 0) {
+                x = e.touches[0].clientX;
+            } else {
+                x = e.clientX;
+            }
+            
+            x = x - rect.left;
+            
+            let percentage = (x / rect.width) * 100;
+            percentage = Math.max(0, Math.min(100, percentage));
+
+            sliderLine.style.left = percentage + '%';
+            afterImg.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
+        }
+
+        // Mouse events
+        sliderLine.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            updateSlider(e); // Update immediately on click
+        });
+        document.addEventListener('mouseup', () => isDragging = false);
+        document.addEventListener('mousemove', updateSlider);
+
+        // Touch events
+        sliderLine.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            e.preventDefault(); // Prevent scrolling while dragging
+            updateSlider(e);
+        });
+        document.addEventListener('touchend', () => isDragging = false);
+        document.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                e.preventDefault(); // Prevent scrolling while dragging
+                updateSlider(e);
+            }
+        });
+
+        comparisonContainer.addEventListener('click', updateSlider);
+
+        // Lightbox
+        // Fungsi openLightbox diubah untuk mengambil URL gambar dari parameter kedua
+        function openLightbox(element, imgUrl) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            
+            lightboxImg.src = imgUrl; // Set URL gambar ke elemen <img>
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            // Kosongkan src saat menutup lightbox untuk efisiensi
+            document.getElementById('lightboxImg').src = ""; 
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox when clicking outside image
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
+                closeLightbox();
+            }
+        });
+
+        // Smooth scroll for CTA button
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
