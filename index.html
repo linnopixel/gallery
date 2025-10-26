@@ -73,7 +73,7 @@
             color: var(--text-primary);
             text-decoration: none;
             font-size: clamp(0.9rem, 1.5vw, 1rem);
-            transition: color 0.3s ease;
+            transition: color 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
         }
 
         .nav-menu a:hover {
@@ -93,7 +93,7 @@
             width: 25px;
             height: 3px;
             background: var(--accent);
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* Animasi interaksi (saat klik) dipertahankan */
         }
 
         /* Hero Section */
@@ -109,12 +109,11 @@
             margin-top: 60px;
         }
 
+        /* Animasi fadeUp dihapus dari elemen Hero */
         .hero h1 {
             font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeUp 1s ease forwards;
         }
 
         .hero p {
@@ -122,8 +121,6 @@
             font-weight: 300;
             max-width: 700px;
             margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeUp 1s ease 0.3s forwards;
         }
 
         .cta-button {
@@ -135,9 +132,7 @@
             font-size: clamp(0.9rem, 1.5vw, 1.1rem);
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeUp 1s ease 0.6s forwards;
+            transition: all 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
         }
 
         .cta-button:hover {
@@ -217,7 +212,7 @@
             background: var(--bg-primary);
             padding: 2rem;
             border-radius: 14px;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
             text-align: center;
         }
 
@@ -265,7 +260,7 @@
             border-radius: 14px;
             overflow: hidden;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
         }
         /* AKHIR ATURAN RASIO 4:5 */
 
@@ -278,7 +273,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
         }
 
         .gallery-item:hover img {
@@ -296,7 +291,7 @@
             padding: 10px;
             background: linear-gradient(transparent, rgba(34, 40, 49, 0.596));
             transform: translateY(100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
             /* PENTING: Tambahkan radius di bagian bawah agar mengisi sudut parent item */
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
@@ -326,7 +321,7 @@
             border-radius: 50px;
             font-size: clamp(0.9rem, 1.5vw, 1rem);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
         }
 
         .view-all-btn:hover {
@@ -433,7 +428,7 @@
             background: var(--bg-secondary);
             border-radius: 14px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
         }
 
         .journal-card:hover {
@@ -513,7 +508,7 @@
         .social-icons a {
             color: var(--accent);
             font-size: 2rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
         }
 
         .social-icons a:hover {
@@ -567,34 +562,11 @@
             color: var(--text-primary);
             font-size: 2.5rem;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
         }
 
         .lightbox-close:hover {
             color: var(--accent);
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Responsive */
@@ -624,18 +596,10 @@
                 flex-direction: column;
                 background: rgba(49, 54, 63, 0.98);
                 
-                /* START: Dropdown from Top Effect */
-                max-height: 0; 
-                overflow: hidden; 
-                
-                /* MENGUBAH: Mengurangi padding vertikal dari 0 menjadi 1.5rem */
-                padding: 0 2rem; 
-                
-                /* MENGUBAH: Mengurangi gap antar item dari 0 menjadi 0.5rem */
-                gap: 0;
-                
-                transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, gap 0.5s ease-in-out; 
-                /* END: Dropdown from Top Effect */
+                /* MENGHILANGKAN ANIMASI MENU DROPDOWN */
+                display: none; /* Default: Sembunyikan */
+                padding: 1.5rem 2rem; /* Tetapkan padding saat aktif */
+                gap: 0.5rem; /* Tetapkan gap saat aktif */
                 
                 /* Tambahkan bayangan ke menu dropdown agar lebih terlihat */
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
@@ -652,14 +616,8 @@
 
 
             .nav-menu.active {
-                /* Aktifkan efek dropdown */
-                max-height: 400px; 
-                
-                /* MENGUBAH: Padding diubah dari 2rem menjadi 1.5rem (lebih rapat) */
-                padding: 1.5rem 2rem; 
-                
-                /* MENGUBAH: Gap diubah dari 1rem menjadi 0.5rem (lebih rapat) */
-                gap: 0.5rem; 
+                /* Tampilkan menu tanpa transisi (langsung muncul) */
+                display: flex; 
             }
             
             .nav-menu li {
@@ -737,8 +695,8 @@
     </section>
 
     
-
-<section class="story reveal" id="story">
+<!-- Kelas 'reveal' telah dihapus dari semua section -->
+<section class="story" id="story">
         <div class="story-content">
             <div class="story-text">
                 <p style="text-align: justify;">Awalnya hanya sekedar suka mengakses banyak hal random di internet, lalu mulai ingin tau dimana posisi rumah, tempat dimana dia sering berkumpul bersama teman-teman nya hingga sekolahnya.</p>
@@ -754,7 +712,7 @@
 
     
 
-<section class="process reveal" id="process">
+<section class="process" id="process">
         <div class="process-cards">
             <div class="process-card">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -776,7 +734,7 @@
 
     
 
-<section class="gallery reveal" id="gallery">
+<section class="gallery" id="gallery">
         <h2 class="section-title">Galeri Karya</h2>
         <div class="gallery-grid">
             
@@ -833,7 +791,7 @@
 
     
 
-<section class="before-after reveal" id="before-after">
+<section class="before-after" id="before-after">
         <h2 class="section-title">Before & After</h2>
         <div class="comparison-labels">
             <span>Before</span>
@@ -857,7 +815,7 @@
 
     
 
-<section class="journal reveal" id="journal">
+<section class="journal" id="journal">
         <h2 class="section-title">Refleksi Perjalanan</h2>
         <div class="journal-cards">
             <div class="journal-card">
@@ -898,7 +856,7 @@
 
     
 
-<section class="contact reveal" id="contact">
+<section class="contact" id="contact">
         <h2 class="section-title">Mari Terhubung.</h2>
         <div class="contact-content">
 
@@ -935,7 +893,14 @@
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
 
+        // Menghilangkan fungsi Scroll Reveal dan panggilannya
+        // const reveals = document.querySelectorAll('.reveal');
+        // function checkReveal() { ... }
+        // window.addEventListener('scroll', checkReveal);
+        // checkReveal();
+
         hamburger.addEventListener('click', () => {
+            // Mengganti toggle class untuk menyembunyikan/menampilkan menu secara instan (tanpa transisi slide)
             navMenu.classList.toggle('active');
         });
 
@@ -944,24 +909,6 @@
                 navMenu.classList.remove('active');
             });
         });
-
-        // Scroll Reveal
-        const reveals = document.querySelectorAll('.reveal');
-
-        function checkReveal() {
-            reveals.forEach(reveal => {
-                const windowHeight = window.innerHeight;
-                const revealTop = reveal.getBoundingClientRect().top;
-                const revealPoint = 100;
-
-                if (revealTop < windowHeight - revealPoint) {
-                    reveal.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', checkReveal);
-        checkReveal();
 
         // Before-After Slider
         const sliderLine = document.getElementById('sliderLine');
