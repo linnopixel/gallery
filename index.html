@@ -55,7 +55,6 @@
             font-size: clamp(1.2rem, 2vw, 1.5rem);
             font-weight: 600;
             color: var(--text-primary);
-            /* Tambahkan order: -1 agar logo selalu di kiri saat mobile */
             order: -1; 
         }
 
@@ -73,7 +72,7 @@
             color: var(--text-primary);
             text-decoration: none;
             font-size: clamp(0.9rem, 1.5vw, 1rem);
-            transition: color 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
+            transition: color 0.3s ease;
         }
 
         .nav-menu a:hover {
@@ -85,7 +84,6 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
-            /* Pastikan hamburger berada di paling kanan pada mobile */
             order: 1; 
         }
 
@@ -93,7 +91,7 @@
             width: 25px;
             height: 3px;
             background: var(--accent);
-            transition: all 0.3s ease; /* Animasi interaksi (saat klik) dipertahankan */
+            transition: all 0.3s ease;
         }
 
         /* Hero Section */
@@ -109,7 +107,6 @@
             margin-top: 10px;
         }
 
-        /* Animasi fadeUp dihapus dari elemen Hero */
         .hero h1 {
             font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 700;
@@ -132,7 +129,7 @@
             font-size: clamp(0.9rem, 1.5vw, 1.1rem);
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
+            transition: all 0.3s ease;
         }
 
         .cta-button:hover {
@@ -141,50 +138,81 @@
             box-shadow: 0 10px 20px rgba(118, 171, 174, 0.3);
         }
 
-        /* Story Section */
+        /* Story Section (DIUBAH TOTAL) */
         .story {
             padding: 5rem 5%;
             background: var(--bg-primary);
+            text-align: center; /* Untuk mobile/judul */
+        }
+
+        .story-header {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 600;
+            margin-bottom: 3rem;
         }
 
         .story-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .story-text p {
-            font-size: clamp(1rem, 1.8vw, 1.2rem);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .story-text i {
-            color: #e74c3c;
-            font-size: 1.5rem;
-            margin-top: 1rem;
-        }
-
         .story-image {
-            width: 100%;
-            height: 400px;
+            /* Rasio 1:1, ukuran tetap di desktop, mengecil di mobile */
+            width: 250px; 
+            height: 250px;
             background: var(--bg-secondary);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 50%; /* Membuatnya lingkaran */
             overflow: hidden;
+            margin-bottom: 2rem;
+            border: 5px solid var(--accent);
+            box-shadow: 0 0 0 10px rgba(118, 171, 174, 0.2);
+            flex-shrink: 0; /* Pastikan tidak menyusut */
         }
 
         .story-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Tambahkan filter untuk kesan artistik seperti satelit */
-            filter: grayscale(10%) contrast(110%);
+        }
+        
+        .story-body {
+            display: grid;
+            grid-template-columns: 1fr; /* Default ke 1 kolom di mobile */
+            gap: 2rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .story-text {
+            text-align: justify;
+            padding: 0 1rem;
+        }
+        
+        .story-text p {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-quote {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-left: 5px solid var(--accent);
+            border-radius: 8px;
+            margin-top: 2rem;
+            text-align: left;
+        }
+        
+        .story-quote p {
+            font-style: italic;
+            font-weight: 300;
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            line-height: 1.6;
+            margin-bottom: 0;
+            color: var(--text-primary);
         }
 
         /* Process Section */
@@ -202,9 +230,9 @@
 
         .process-cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr); 
             gap: 2rem;
-            max-width: 1200px;
+            max-width: 800px; 
             margin: 0 auto;
         }
 
@@ -212,13 +240,7 @@
             background: var(--bg-primary);
             padding: 2rem;
             border-radius: 14px;
-            transition: all 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
             text-align: center;
-        }
-
-        .process-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(118, 171, 174, 0.3);
         }
 
         .process-card i {
@@ -245,7 +267,6 @@
 
         .gallery-grid {
             display: grid;
-            /* Default untuk Desktop: 3 kolom */
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             max-width: 1200px;
@@ -255,14 +276,12 @@
         /* ATURAN UNTUK RASIO 4:5 */
         .gallery-item {
             position: relative;
-            /* Properti aspect-ratio memastikan rasio 4:5 di semua ukuran layar/device */
             aspect-ratio: 4 / 5; 
             border-radius: 14px;
             overflow: hidden;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
+            transition: transform 0.3s, box-shadow 0.3s ease;
         }
-        /* AKHIR ATURAN RASIO 4:5 */
 
         .gallery-item:hover {
             transform: scale(1.02);
@@ -273,7 +292,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
+            transition: transform 0.3s ease;
         }
 
         .gallery-item:hover img {
@@ -283,16 +302,13 @@
         /* FIX UNTUK OVERLAY AGAR MEMENUHI SUDUT */
         .gallery-overlay {
             position: absolute;
-            /* Perbaikan: dorong ke bawah 1px untuk menelan celah subpixel */
             bottom: -1px; 
             left: 0;
             right: 0;
-            /* Ubah padding agar lebih simetris di dalam overlay */
             padding: 10px;
             background: linear-gradient(transparent, rgba(34, 40, 49, 0.596));
             transform: translateY(100%);
-            transition: transform 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
-            /* PENTING: Tambahkan radius di bagian bawah agar mengisi sudut parent item */
+            transition: transform 0.3s ease;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
         }
@@ -307,7 +323,7 @@
             font-size: 13px; 
             font-weight: 100; 
             color: cornsilk;
-            margin-bottom: -4px; /* Hilangkan margin bawah agar lebih rapi */
+            margin-bottom: -4px;
         }
         /* END: PERUBAHAN FONT KETERANGAN FOTO (OVERLAY) */
 
@@ -321,7 +337,7 @@
             border-radius: 50px;
             font-size: clamp(0.9rem, 1.5vw, 1rem);
             cursor: pointer;
-            transition: all 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
+            transition: all 0.3s ease;
         }
 
         .view-all-btn:hover {
@@ -351,13 +367,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* START: Aturan untuk mencegah blocking (selection) dan dragging */
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* IE/Edge */
-            user-select: none;         /* Standard (Mencegah pemilihan/blocking) */
-            -webkit-user-drag: none;   /* Disable dragging on WebKit (Mencegah dragging) */
-            /* END: Aturan untuk mencegah blocking dan dragging */
+            /* Aturan untuk mencegah blocking (selection) dan dragging */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         .after-img {
@@ -418,9 +433,9 @@
 
         .journal-cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr); 
             gap: 2rem;
-            max-width: 1200px;
+            max-width: 800px; 
             margin: 0 auto;
         }
 
@@ -428,20 +443,13 @@
             background: var(--bg-secondary);
             border-radius: 14px;
             overflow: hidden;
-            transition: all 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
-        }
-
-        .journal-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(118, 171, 174, 0.3);
         }
 
         .journal-img {
             width: 100%;
-            /* START: PERUBAHAN UNTUK RASIO 16:9 */
-            aspect-ratio: 16 / 9; /* Tetapkan rasio 16:9 */
-            height: auto; /* Biarkan tinggi menyesuaikan */
-            /* END: PERUBAHAN UNTUK RASIO 16:9 */
+            /* PERUBAHAN UNTUK RASIO 16:9 */
+            aspect-ratio: 16 / 9;
+            height: auto;
             background: var(--bg-primary);
             display: flex;
             align-items: center;
@@ -453,16 +461,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Tambahkan filter untuk kesan lebih gelap */
             filter: brightness(80%); 
 
             /* ATURAN UNTUK MENCEGAH BLOCKING DAN DRAGGING PADA GAMBAR JURNAL */
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* IE/Edge */
-            user-select: none;         /* Standard (Mencegah pemilihan/blocking) */
-            -webkit-user-drag: none;   /* Disable dragging on WebKit (Mencegah dragging) */
-            /* AKHIR ATURAN UNTUK MENCEGAH BLOCKING DAN DRAGGING PADA GAMBAR JURNAL */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         .journal-content {
@@ -508,7 +514,7 @@
         .social-icons a {
             color: var(--accent);
             font-size: 2rem;
-            transition: all 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
+            transition: all 0.3s ease;
         }
 
         .social-icons a:hover {
@@ -562,7 +568,7 @@
             color: var(--text-primary);
             font-size: 2.5rem;
             cursor: pointer;
-            transition: color 0.3s ease; /* Animasi interaksi (hover) dipertahankan */
+            transition: color 0.3s ease;
         }
 
         .lightbox-close:hover {
@@ -571,49 +577,79 @@
 
         /* Responsive */
         
+        @media (min-width: 768px) {
+             /* Story layout di desktop/tablet */
+            .story-content {
+                display: grid;
+                grid-template-areas: 
+                    "image text";
+                grid-template-columns: 250px 1fr; /* Lebar image 250px, teks sisanya */
+                gap: 3rem;
+                align-items: flex-start;
+                padding-top: 2rem;
+            }
+
+            .story-image {
+                grid-area: image;
+                margin-bottom: 0;
+            }
+
+            .story-text-wrapper {
+                 grid-area: text;
+                 padding-left: 1rem;
+            }
+            
+            .story-text {
+                padding: 0; /* Hapus padding yang ada di mobile */
+            }
+        }
+
+
         @media (max-width: 992px) {
-            /* --- PERUBAHAN UTAMA: GALERI (Gallery) AKTIF 2 KOLOM HINGGA 992px --- */
+            /* GALERI (Gallery) AKTIF 2 KOLOM HINGGA 992px */
             .gallery-grid {
-                /* Menjadi 2 kolom di layar tablet dan sebagian besar perangkat mobile */
                 grid-template-columns: repeat(2, 1fr);
             }
-            /* -------------------------------------------------------------------- */
 
+            /* PROCESS (Process) AKTIF 2 KOLOM HINGGA 992px */
+            .process-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* JURNAL (Journal) AKTIF 2 KOLOM HINGGA 992px */
+            .journal-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .hamburger {
                 display: flex;
             }
 
             .nav-menu {
-                /* START: PERUBAHAN POSISI MENU MOBILE */
                 /* Karena hamburger sudah di kanan, menu dropdown harus mulai dari kanan */
-                left: auto; /* Hilangkan left: 0 */
-                right: 0; /* Taruh di kanan */
+                left: auto;
+                right: 0;
                 width: 30%; 
-                /* END: PERUBAHAN POSISI MENU MOBILE */
 
                 position: fixed;
                 top: 60px;
                 flex-direction: column;
                 background: rgba(49, 54, 63, 0.98);
                 
-                /* MENGHILANGKAN ANIMASI MENU DROPDOWN */
-                display: none; /* Default: Sembunyikan */
-                padding: 1.5rem 2rem; /* Tetapkan padding saat aktif */
-                gap: 0.5rem; /* Tetapkan gap saat aktif */
+                /* Mengganti animasi slide/fade dengan display: none/flex */
+                display: none;
+                padding: 1.5rem 2rem;
+                gap: 0.5rem;
                 
-                /* Tambahkan bayangan ke menu dropdown agar lebih terlihat */
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             }
             
-            /* --- PENTING: Perubahan pada Navbar agar logo dan hamburger bertukar posisi --- */
+            /* Navbar tetap menggunakan Flexbox Order untuk menukar posisi hanya pada mobile */
             .navbar {
-                 /* Menggunakan Flexbox Order untuk menukar posisi hanya pada mobile */
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
-            /* --- AKHIR PERUBAHAN PENTING --- */
-
 
             .nav-menu.active {
                 /* Tampilkan menu tanpa transisi (langsung muncul) */
@@ -622,23 +658,16 @@
             
             .nav-menu li {
                 width: 100%;
-                text-align: right; /* Rata kanan untuk link menu */
+                text-align: right;
             }
             
             .nav-menu a {
                 display: block;
-                
-                /* MENGUBAH: Padding vertikal pada link diubah dari 0.5rem menjadi 0.4rem (lebih rapat) */
                 padding: 0.4rem 0;
             }
 
 
             .story-content {
-                grid-template-columns: 1fr;
-            }
-
-            .process-cards,
-            .journal-cards {
                 grid-template-columns: 1fr;
             }
 
@@ -650,10 +679,29 @@
         }
 
         @media (max-width: 480px) {
+            /* GALERI TETAP 2 KOLOM */
             .gallery-grid {
-                /* Menjadi 2 kolom di layar tablet dan sebagian besar perangkat mobile */
                 grid-template-columns: repeat(2, 1fr);
-            }            
+            }
+
+            /* PROCESS TETAP 1 KOLOM DI MOBILE SANGAT KECIL */
+            .process-cards {
+                grid-template-columns: 1fr;
+                gap: 1rem; /* Sedikit perkecil jarak di layar sangat kecil */
+            }
+            
+            /* JOURNAL JUGA 1 KOLOM DI MOBILE SANGAT KECIL */
+            .journal-cards {
+                grid-template-columns: 1fr;
+                gap: 1rem; /* Sedikit perkecil jarak di layar sangat kecil */
+            }
+
+            /* Story Image di mobile dikecilkan sedikit */
+            .story-image {
+                width: 200px;
+                height: 200px;
+            }
+
             /* Tambahkan padding agar menu dropdown di mobile terlihat lebih rapi */
             .nav-menu {
                 width: 60%; 
@@ -663,8 +711,8 @@
 </head>
 <body>
     
-
-<nav class="navbar">
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="logo">
             <span style="color: #76ABAE;">Linnopixel</span>
         </div>
@@ -680,106 +728,99 @@
             <li><a href="#story">Story</a></li>
             <li><a href="#process">Process</a></li>
             <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#before-after">Before–After</a></li>
+            <li><a href="#before-after">B & A</a></li>
             <li><a href="#journal">Journal</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    
-
-<section class="hero" id="home">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <h1>Berawal dari Penasaran</h1>
         <p>Dari rasa penasaran terhadap dunia luar menjadi inspirasi.</p>
         <button class="cta-button" onclick="document.getElementById('gallery').scrollIntoView({behavior: 'smooth'})">Lihat Galeri</button>
     </section>
 
-    
-<!-- Kelas 'reveal' telah dihapus dari semua section -->
-<section class="story" id="story">
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <h2 class="story-header">Sedikit Cerita</h2>
         <div class="story-content">
-            <div class="story-text">
-                <p style="text-align: justify;">Awalnya hanya sekedar suka mengakses banyak hal random di internet, lalu mulai ingin tau dimana posisi rumah, tempat dimana dia sering berkumpul bersama teman-teman nya hingga sekolahnya.</p>
-                <p style="text-align: justify;">Aku hanya ingin mencari informasi geografi seseorang. Memperbesar jalan, menelusuri gang, dan memperhatikan warna langit yang terekam kamera.</p>
-            </div>
+            <!-- Foto Profil 1:1 (Lingkaran) -->
             <div class="story-image">
-                
-
-<img src="https://placehold.co/800x400/31363F/76ABAE?text=Peta+Satellit+Seni" alt="Peta Satelit Artistik" onerror="this.onerror=null; this.src='https://placehold.co/800x400/31363F/76ABAE?text=Peta+Satellit+Seni';" loading="lazy">
+                <img src="https://placehold.co/250x250/76ABAE/222831?text=Kreator+Foto+Profil" alt="Foto Profil Kreator">
+            </div>
+            
+            <!-- Pembungkus Teks -->
+            <div class="story-text-wrapper">
+                <div class="story-text">
+                    <p>Awalnya hanya sekedar suka mengakses banyak hal random di internet, lalu mulai ingin tau dimana posisi rumah, tempat dimana dia sering berkumpul bersama teman-teman nya hingga sekolahnya. Dari situlah muncul ketertarikan. Memperbesar jalan, menelusuri gang, dan memperhatikan warna langit.</p>
+                </div>
+                <!-- Tambahan Quote untuk mempercantik layout -->
+                <div class="story-quote">
+                    <p>"sekedar suka mengakses banyak hal random di internet"</p>
+                </div>
             </div>
         </div>
     </section>
 
-    
-
-<section class="process" id="process">
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <h2 class="section-title">Cara Kerjanya?</h2>
         <div class="process-cards">
             <div class="process-card">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <h3>Mencari</h3>
-                <p>Eksplorasi Google Maps untuk menemukan sudut pandang unik dari berbagai lokasi di seluruh dunia.</p>
+                <h3>Cari</h3>
+                <p>Lewat Google Maps buat nemuin sisi unik dari banyak tempat.</p>
             </div>
             <div class="process-card">
                 <i class="fa-solid fa-eye"></i>
-                <h3>Menemukan</h3>
-                <p>Memilih potongan citra satelit yang memiliki komposisi, warna, dan cerita menarik untuk dieksplorasi.</p>
-            </div>
-            <div class="process-card">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <h3>Mengubah</h3>
-                <p>Menghadirkan perspektif baru dari yang penuh dengan keindahan.</p>
+                <h3>Ketemu</h3>
+                <p>Pilih gambar yang komposisinya bagus dan punya cerita buat diolah.</p>
             </div>
         </div>
     </section>
 
-    
-
-<section class="gallery" id="gallery">
-        <h2 class="section-title">Galeri Karya</h2>
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">Koleksi Foto</h2>
         <div class="gallery-grid">
-            
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi')">
+            <!-- Gallery Item 1 -->
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi')">
                 <img src="https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi" alt="Cahaya Pagi di Gang Sepi" onerror="this.onerror=null; this.src='https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Cahaya Pagi di Gang Sepi</h4>
                 </div>
             </div>
-            
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota')">
+            <!-- Gallery Item 2 -->
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota')">
                 <img src="https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota" alt="Persimpangan Kota yang Ramai" onerror="this.onerror=null; this.src='https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Persimpangan Kota yang Ramai</h4>
                 </div>
             </div>
-            
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial')">
+            <!-- Gallery Item 3 -->
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial')">
                 <img src="https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial" alt="Pantai dari Ketinggian" onerror="this.onerror=null; this.src='https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Pantai dari Ketinggian</h4>
                 </div>
             </div>
-            
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau')">
+            <!-- Gallery Item 4 -->
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau')">
                 <img src="https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau" alt="Hamparan Sawah Hijau" onerror="this.onerror=null; this.src='https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Hamparan Sawah Hijau</h4>
                 </div>
             </div>
-            
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan')">
+            <!-- Gallery Item 5 -->
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan')">
                 <img src="https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan" alt="Senja di Pelabuhan" onerror="this.onerror=null; this.src='https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Senja di Pelabuhan</h4>
                 </div>
             </div>
-            
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota')">
+            <!-- Gallery Item 6 -->
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota')">
                 <img src="https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota" alt="Malam di Pusat Kota" onerror="this.onerror=null; this.src='https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Malam di Pusat Kota</h4>
@@ -789,21 +830,18 @@
         <button class="view-all-btn">Lihat Semua Koleksi</button>
     </section>
 
-    
-
-<section class="before-after" id="before-after">
+    <!-- Before-After Section -->
+    <section class="before-after" id="before-after">
         <h2 class="section-title">Before & After</h2>
         <div class="comparison-labels">
             <span>Before</span>
             <span>After</span>
         </div>
         <div class="comparison-container">
-            
-
-<img class="comparison-img" src="https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah" alt="Citra Mentah Sebelum Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah';" loading="lazy">
-            
-
-<img class="comparison-img after-img" src="https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai" alt="Karya Setelah Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai';" loading="lazy">
+            <!-- Before Image -->
+            <img class="comparison-img" src="https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah" alt="Citra Mentah Sebelum Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah';" loading="lazy">
+            <!-- After Image (initially clipped) -->
+            <img class="comparison-img after-img" src="https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai" alt="Karya Setelah Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai';" loading="lazy">
             <div class="slider-line" id="sliderLine">
                 <div class="slider-handle">
                     <i class="fa-solid fa-circle"></i>
@@ -813,16 +851,14 @@
         <p class="before-after-text">"Setiap sentuhan mengubah suasana — bukan hanya warna, tapi juga cerita."</p>
     </section>
 
-    
-
-<section class="journal" id="journal">
+    <!-- Journal Section -->
+    <section class="journal" id="journal">
         <h2 class="section-title">Refleksi Perjalanan</h2>
         <div class="journal-cards">
             <div class="journal-card">
                 <div class="journal-img">
-                    
-
-<img src="https://placehold.co/400x225/222831/76ABAE?text=Gunung+dan+Jalan" alt="Gunung dan Jalan" onerror="this.onerror=null; this.src='https://placehold.co/400x225/222831/76ABAE?text=Gunung+dan+Jalan';" loading="lazy">
+                    <!-- Placeholder Image -->
+                    <img src="jurnal/gunung.jpg" alt="Gunung dan Jalan">
                 </div>
                 <div class="journal-content">
                     <h3>Perspektif Baru</h3>
@@ -831,61 +867,43 @@
             </div>
             <div class="journal-card">
                 <div class="journal-img">
-                    
-
-<img src="https://placehold.co/400x225/31363F/EEEEEE?text=Peta+Satelit" alt="Peta Satelit" onerror="this.onerror=null; this.src='https://placehold.co/400x225/31363F/EEEEEE?text=Peta+Satelit';" loading="lazy">
+                    <!-- Placeholder Image -->
+                    <img src="jurnal/satelit.png" alt="Peta Satelit">
                 </div>
                 <div class="journal-content">
                     <h3>Tersesat & Menemukan</h3>
                     <p>"Dalam mencari, kita sering menemukan hal yang lebih berharga dari yang kita cari."</p>
                 </div>
             </div>
-            <div class="journal-card">
-                <div class="journal-img">
-                    
-
-<img src="https://placehold.co/400x225/76ABAE/222831?text=Sentuhan+Akhir" alt="Sentuhan Akhir" onerror="this.onerror=null; this.src='https://placehold.co/400x225/76ABAE/222831?text=Sentuhan+Akhir';" loading="lazy">
-                </div>
-                <div class="journal-content">
-                    <h3>Rasa yang Mengubah</h3>
-                    <p>"Dari iseng menjadi cinta, dari mencari menjadi menciptakan."</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    
-
-<section class="contact" id="contact">
-        <h2 class="section-title">Mari Terhubung.</h2>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Kontak.</h2>
         <div class="contact-content">
-
+            <div class="contact-subtitle">Kalau ada pertanyaan, mau kasih saran, atau sekadar nyapa, hubungi lewat media sosial di bawah ini.</div>
             <div class="social-icons">
                 <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                
-
-<a href="#" aria-label="Github"><i class="fa-brands fa-github"></i></a>
-                
-
-<a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+                <!-- Link sosial media placeholder -->
+                <a href="#" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+                <!-- Link sosial media placeholder -->
+                <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
                 <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
-    
-
-<footer class="footer">
+    <!-- Footer -->
+    <footer class="footer">
         <p>© 2025 Michellino. All Rights Reserved</p>
     </footer>
 
-    
-
-<div class="lightbox" id="lightbox">
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
         <i class="fa-solid fa-xmark lightbox-close" onclick="closeLightbox()"></i>
-        
-
-<img id="lightboxImg" src="" alt="Gambar Galeri Besar">
+        <!-- Gambar akan diisi oleh JavaScript -->
+        <img id="lightboxImg" src="" alt="Gambar Galeri Besar">
     </div>
 
     <script>
@@ -893,14 +911,8 @@
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
 
-        // Menghilangkan fungsi Scroll Reveal dan panggilannya
-        // const reveals = document.querySelectorAll('.reveal');
-        // function checkReveal() { ... }
-        // window.addEventListener('scroll', checkReveal);
-        // checkReveal();
-
         hamburger.addEventListener('click', () => {
-            // Mengganti toggle class untuk menyembunyikan/menampilkan menu secara instan (tanpa transisi slide)
+            // Mengganti toggle class untuk menyembunyikan/menampilkan menu secara instan
             navMenu.classList.toggle('active');
         });
 
