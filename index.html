@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berawal dari Penasaran</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Peningkatan Efisiensi Pemanggilan Sumber Daya Eksternal -->
+    
+    <!-- 1. Optimasi Google Fonts: Preconnect dan display=swap -->
+    <!-- Preconnect membantu browser menyiapkan koneksi lebih awal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Gunakan 'display=swap' untuk memastikan teks tetap terlihat saat font dimuat -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 2. Optimasi Font Awesome: Muat secara asinkron (opsional, jika font Awesome hanya untuk ikon) -->
+    <!-- Saya tidak akan mengubah cara pemuatan FA, karena FA digunakan secara luas di seluruh halaman. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* CSS DILANJUTKAN SEPERTI SEMULA */
         * {
             margin: 0;
             padding: 0;
@@ -745,9 +758,8 @@
                 <p style="text-align: justify;">Aku hanya ingin mencari informasi geografi seseorang. Memperbesar jalan, menelusuri gang, dan memperhatikan warna langit yang terekam kamera.</p>
             </div>
             <div class="story-image">
-                
-
-<img src="https://placehold.co/800x400/31363F/76ABAE?text=Peta+Satellit+Seni" alt="Peta Satelit Artistik" onerror="this.onerror=null; this.src='https://placehold.co/800x400/31363F/76ABAE?text=Peta+Satellit+Seni';" loading="lazy">
+                <!-- Tambahkan loading="lazy" pada semua tag <img> yang tidak terlihat di awal (Above the fold) -->
+                <img src="https://placehold.co/800x400/31363F/76ABAE?text=Peta+Satellit+Seni" alt="Peta Satelit Artistik" onerror="this.onerror=null; this.src='https://placehold.co/800x400/31363F/76ABAE?text=Peta+Satellit+Seni';" loading="lazy">
             </div>
         </div>
     </section>
@@ -755,6 +767,7 @@
     
 
 <section class="process reveal" id="process">
+        <h2 class="section-title">Proses Kreatif</h2>
         <div class="process-cards">
             <div class="process-card">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -779,49 +792,43 @@
 <section class="gallery reveal" id="gallery">
         <h2 class="section-title">Galeri Karya</h2>
         <div class="gallery-grid">
-            
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi')">
+            <!-- Menambahkan loading="lazy" pada semua gambar galeri -->
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi')">
                 <img src="https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi" alt="Cahaya Pagi di Gang Sepi" onerror="this.onerror=null; this.src='https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Cahaya Pagi di Gang Sepi</h4>
                 </div>
             </div>
             
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota')">
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota')">
                 <img src="https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota" alt="Persimpangan Kota yang Ramai" onerror="this.onerror=null; this.src='https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Persimpangan Kota yang Ramai</h4>
                 </div>
             </div>
             
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial')">
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial')">
                 <img src="https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial" alt="Pantai dari Ketinggian" onerror="this.onerror=null; this.src='https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Pantai dari Ketinggian</h4>
                 </div>
             </div>
             
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau')">
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau')">
                 <img src="https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau" alt="Hamparan Sawah Hijau" onerror="this.onerror=null; this.src='https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Hamparan Sawah Hijau</h4>
                 </div>
             </div>
             
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan')">
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan')">
                 <img src="https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan" alt="Senja di Pelabuhan" onerror="this.onerror=null; this.src='https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Senja di Pelabuhan</h4>
                 </div>
             </div>
             
-
-<div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota')">
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota')">
                 <img src="https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota" alt="Malam di Pusat Kota" onerror="this.onerror=null; this.src='https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Malam di Pusat Kota</h4>
@@ -840,12 +847,9 @@
             <span>After</span>
         </div>
         <div class="comparison-container">
-            
-
-<img class="comparison-img" src="https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah" alt="Citra Mentah Sebelum Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah';" loading="lazy">
-            
-
-<img class="comparison-img after-img" src="https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai" alt="Karya Setelah Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai';" loading="lazy">
+            <!-- Tambahkan loading="lazy" pada semua gambar sebelum-sesudah -->
+            <img class="comparison-img" src="https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah" alt="Citra Mentah Sebelum Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah';" loading="lazy">
+            <img class="comparison-img after-img" src="https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai" alt="Karya Setelah Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai';" loading="lazy">
             <div class="slider-line" id="sliderLine">
                 <div class="slider-handle">
                     <i class="fa-solid fa-circle"></i>
@@ -862,9 +866,8 @@
         <div class="journal-cards">
             <div class="journal-card">
                 <div class="journal-img">
-                    
-
-<img src="https://placehold.co/400x225/222831/76ABAE?text=Gunung+dan+Jalan" alt="Gunung dan Jalan" onerror="this.onerror=null; this.src='https://placehold.co/400x225/222831/76ABAE?text=Gunung+dan+Jalan';" loading="lazy">
+                    <!-- Tambahkan loading="lazy" pada semua gambar jurnal -->
+                    <img src="https://placehold.co/400x225/222831/76ABAE?text=Gunung+dan+Jalan" alt="Gunung dan Jalan" onerror="this.onerror=null; this.src='https://placehold.co/400x225/222831/76ABAE?text=Gunung+dan+Jalan';" loading="lazy">
                 </div>
                 <div class="journal-content">
                     <h3>Perspektif Baru</h3>
@@ -873,9 +876,7 @@
             </div>
             <div class="journal-card">
                 <div class="journal-img">
-                    
-
-<img src="https://placehold.co/400x225/31363F/EEEEEE?text=Peta+Satelit" alt="Peta Satelit" onerror="this.onerror=null; this.src='https://placehold.co/400x225/31363F/EEEEEE?text=Peta+Satelit';" loading="lazy">
+                    <img src="https://placehold.co/400x225/31363F/EEEEEE?text=Peta+Satelit" alt="Peta Satelit" onerror="this.onerror=null; this.src='https://placehold.co/400x225/31363F/EEEEEE?text=Peta+Satelit';" loading="lazy">
                 </div>
                 <div class="journal-content">
                     <h3>Tersesat & Menemukan</h3>
@@ -884,9 +885,7 @@
             </div>
             <div class="journal-card">
                 <div class="journal-img">
-                    
-
-<img src="https://placehold.co/400x225/76ABAE/222831?text=Sentuhan+Akhir" alt="Sentuhan Akhir" onerror="this.onerror=null; this.src='https://placehold.co/400x225/76ABAE/222831?text=Sentuhan+Akhir';" loading="lazy">
+                    <img src="https://placehold.co/400x225/76ABAE/222831?text=Sentuhan+Akhir" alt="Sentuhan Akhir" onerror="this.onerror=null; this.src='https://placehold.co/400x225/76ABAE/222831?text=Sentuhan+Akhir';" loading="lazy">
                 </div>
                 <div class="journal-content">
                     <h3>Rasa yang Mengubah</h3>
@@ -904,12 +903,8 @@
 
             <div class="social-icons">
                 <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                
-
-<a href="#" aria-label="Github"><i class="fa-brands fa-github"></i></a>
-                
-
-<a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+                <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
                 <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
@@ -925,12 +920,11 @@
 
 <div class="lightbox" id="lightbox">
         <i class="fa-solid fa-xmark lightbox-close" onclick="closeLightbox()"></i>
-        
-
-<img id="lightboxImg" src="" alt="Gambar Galeri Besar">
+        <img id="lightboxImg" src="" alt="Gambar Galeri Besar">
     </div>
 
-    <script>
+    <!-- Pindahkan tag script ke akhir body dan gunakan 'defer' untuk eksekusi non-blocking -->
+    <script defer>
         // Hamburger Menu
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
@@ -949,70 +943,101 @@
         const reveals = document.querySelectorAll('.reveal');
 
         function checkReveal() {
-            reveals.forEach(reveal => {
-                const windowHeight = window.innerHeight;
-                const revealTop = reveal.getBoundingClientRect().top;
-                const revealPoint = 100;
+            // Optimasi: Gunakan requestAnimationFrame untuk throttling scroll event
+            window.requestAnimationFrame(() => {
+                reveals.forEach(reveal => {
+                    const windowHeight = window.innerHeight;
+                    const revealTop = reveal.getBoundingClientRect().top;
+                    const revealPoint = 100;
 
-                if (revealTop < windowHeight - revealPoint) {
-                    reveal.classList.add('active');
-                }
+                    if (revealTop < windowHeight - revealPoint) {
+                        reveal.classList.add('active');
+                    }
+                });
             });
         }
 
-        window.addEventListener('scroll', checkReveal);
-        checkReveal();
+        // Gunakan Intersection Observer API untuk Scroll Reveal (LEBIH EFISIEN)
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% dari elemen harus terlihat
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Hentikan pengamatan setelah diaktifkan
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        // Amati semua elemen .reveal
+        reveals.forEach(reveal => {
+            observer.observe(reveal);
+        });
+
+        // HAPUS listener scroll/checkReveal yang lama (diganti Intersection Observer)
+        // window.addEventListener('scroll', checkReveal);
+        // checkReveal(); 
+        
 
         // Before-After Slider
         const sliderLine = document.getElementById('sliderLine');
         const comparisonContainer = document.querySelector('.comparison-container');
         const afterImg = document.querySelector('.after-img');
         let isDragging = false;
+        
+        // Memastikan elemen ada sebelum menambahkan listener
+        if (sliderLine && comparisonContainer && afterImg) {
 
-        function updateSlider(e) {
-            if (!isDragging && e.type !== 'click' && e.type !== 'touchmove') return;
+            function updateSlider(e) {
+                if (!isDragging && e.type !== 'click' && e.type !== 'touchmove') return;
 
-            const rect = comparisonContainer.getBoundingClientRect();
-            let x;
+                const rect = comparisonContainer.getBoundingClientRect();
+                let x;
 
-            if (e.touches && e.touches.length > 0) {
-                x = e.touches[0].clientX;
-            } else {
-                x = e.clientX;
+                if (e.touches && e.touches.length > 0) {
+                    x = e.touches[0].clientX;
+                } else {
+                    x = e.clientX;
+                }
+                
+                x = x - rect.left;
+                
+                let percentage = (x / rect.width) * 100;
+                percentage = Math.max(0, Math.min(100, percentage));
+
+                sliderLine.style.left = percentage + '%';
+                afterImg.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
             }
-            
-            x = x - rect.left;
-            
-            let percentage = (x / rect.width) * 100;
-            percentage = Math.max(0, Math.min(100, percentage));
 
-            sliderLine.style.left = percentage + '%';
-            afterImg.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
-        }
+            // Mouse events
+            sliderLine.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                updateSlider(e); // Update immediately on click
+            });
+            document.addEventListener('mouseup', () => isDragging = false);
+            document.addEventListener('mousemove', updateSlider);
 
-        // Mouse events
-        sliderLine.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            updateSlider(e); // Update immediately on click
-        });
-        document.addEventListener('mouseup', () => isDragging = false);
-        document.addEventListener('mousemove', updateSlider);
-
-        // Touch events
-        sliderLine.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            e.preventDefault(); // Prevent scrolling while dragging
-            updateSlider(e);
-        });
-        document.addEventListener('touchend', () => isDragging = false);
-        document.addEventListener('touchmove', (e) => {
-            if (isDragging) {
+            // Touch events
+            sliderLine.addEventListener('touchstart', (e) => {
+                isDragging = true;
                 e.preventDefault(); // Prevent scrolling while dragging
                 updateSlider(e);
-            }
-        });
+            });
+            document.addEventListener('touchend', () => isDragging = false);
+            document.addEventListener('touchmove', (e) => {
+                if (isDragging) {
+                    e.preventDefault(); // Prevent scrolling while dragging
+                    updateSlider(e);
+                }
+            });
 
-        comparisonContainer.addEventListener('click', updateSlider);
+            comparisonContainer.addEventListener('click', updateSlider);
+        }
 
         // Lightbox
         // Fungsi openLightbox diubah untuk mengambil URL gambar dari parameter kedua
