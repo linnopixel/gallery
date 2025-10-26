@@ -94,42 +94,34 @@
             transition: all 0.3s ease;
         }
 
-        /* --------------------------------------------------- */
-        /* START: PARALLAX STYLES */
-        /* --------------------------------------------------- */
-
+        /* Parallax Styles */
         .hero {
-            position: relative; /* Penting untuk posisi absolut layer */
+            position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-color: var(--bg-secondary); /* Warna fallback */
-            overflow: hidden; /* Mencegah background paralaks menyebabkan scrollbar horizontal */
+            background-color: var(--bg-secondary);
+            overflow: hidden;
             padding: 2rem;
             margin-top: 10px;
         }
         
-        /* Layer untuk Gambar Latar Belakang */
         .parallax-layer {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* Gambar Bumi Satelit (Placeholder yang menggambarkan bumi) */
             background: url('bg.jpg') center center no-repeat;
             background-size: cover;
-            
-            /* Agar layer lebih besar dari viewport untuk efek paralaks */
             transform: scale(1.1); 
-            will-change: transform; /* Optimalisasi kinerja animasi */
+            will-change: transform;
             z-index: 0;
         }
         
-        /* Layer Overlay untuk membuat teks lebih terbaca */
         .hero::before {
             content: '';
             position: absolute;
@@ -142,7 +134,7 @@
         }
 
         .hero h1, .hero p, .cta-button {
-            z-index: 2; /* Pastikan teks dan tombol di atas layer paralaks dan overlay */
+            z-index: 2;
         }
 
         .hero h1 {
@@ -176,11 +168,11 @@
             box-shadow: 0 10px 20px rgba(118, 171, 174, 0.3);
         }
 
-        /* Story Section (DIUBAH TOTAL) */
+        /* Story Section */
         .story {
             padding: 5rem 5%;
             background: var(--bg-primary);
-            text-align: center; /* Untuk mobile/judul */
+            text-align: center;
         }
 
         .story-header {
@@ -198,16 +190,15 @@
         }
 
         .story-image {
-            /* Rasio 1:1, ukuran tetap di desktop, mengecil di mobile */
             width: 250px; 
             height: 250px;
             background: var(--bg-secondary);
-            border-radius: 50%; /* Membuatnya lingkaran */
+            border-radius: 50%;
             overflow: hidden;
             margin-bottom: 2rem;
             border: 5px solid var(--accent);
             box-shadow: 0 0 0 10px rgba(118, 171, 174, 0.2);
-            flex-shrink: 0; /* Pastikan tidak menyusut */
+            flex-shrink: 0;
         }
 
         .story-image img {
@@ -218,7 +209,7 @@
         
         .story-body {
             display: grid;
-            grid-template-columns: 1fr; /* Default ke 1 kolom di mobile */
+            grid-template-columns: 1fr;
             gap: 2rem;
             align-items: center;
             width: 100%;
@@ -311,7 +302,6 @@
             margin: 0 auto 2rem;
         }
 
-        /* ATURAN UNTUK RASIO 4:5 */
         .gallery-item {
             position: relative;
             aspect-ratio: 4 / 5; 
@@ -337,7 +327,6 @@
             transform: scale(1.1);
         }
 
-        /* FIX UNTUK OVERLAY AGAR MEMENUHI SUDUT */
         .gallery-overlay {
             position: absolute;
             bottom: -1px; 
@@ -350,20 +339,17 @@
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
         }
-        /* AKHIR FIX UNTUK OVERLAY */
 
         .gallery-item:hover .gallery-overlay {
             transform: translateY(0);
         }
 
-        /* START: PERUBAHAN FONT KETERANGAN FOTO (OVERLAY) */
         .gallery-overlay h4 {
             font-size: 13px; 
             font-weight: 100; 
             color: cornsilk;
             margin-bottom: -4px;
         }
-        /* END: PERUBAHAN FONT KETERANGAN FOTO (OVERLAY) */
 
         .view-all-btn {
             display: block;
@@ -393,7 +379,6 @@
             position: relative;
             max-width: 800px;
             margin: 0 auto 2rem;
-            /* Rasio 16:9 untuk tampilan horizontal */
             aspect-ratio: 16 / 9; 
             height: auto; 
             border-radius: 14px;
@@ -405,7 +390,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Aturan untuk mencegah blocking (selection) dan dragging */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -485,7 +469,6 @@
 
         .journal-img {
             width: 100%;
-            /* PERUBAHAN UNTUK RASIO 16:9 */
             aspect-ratio: 16 / 9;
             height: auto;
             background: var(--bg-primary);
@@ -500,8 +483,6 @@
             height: 100%;
             object-fit: cover;
             filter: brightness(80%); 
-
-            /* ATURAN UNTUK MENCEGAH BLOCKING DAN DRAGGING PADA GAMBAR JURNAL */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -591,7 +572,6 @@
             display: flex;
         }
 
-        /* Ganti div lightboxImg menjadi img */
         .lightbox img {
             max-width: 90%;
             max-height: 90%;
@@ -616,12 +596,11 @@
         /* Responsive */
         
         @media (min-width: 768px) {
-             /* Story layout di desktop/tablet */
             .story-content {
                 display: grid;
                 grid-template-areas: 
                     "image text";
-                grid-template-columns: 250px 1fr; /* Lebar image 250px, teks sisanya */
+                grid-template-columns: 250px 1fr;
                 gap: 3rem;
                 align-items: flex-start;
                 padding-top: 2rem;
@@ -638,25 +617,21 @@
             }
             
             .story-text {
-                padding: 0; /* Hapus padding yang ada di mobile */
+                padding: 0;
             }
         }
 
-
         @media (max-width: 992px) {
-            /* GALERI (Gallery) AKTIF 2 KOLOM HINGGA 992px */
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            /* PROCESS (Process) AKTIF 2 KOLOM HINGGA 992px */
             .process-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            /* JURNAL (Journal) AKTIF 2 KOLOM HINGGA 992px */
             .journal-cards {
-                grid-template-columns: repeat(1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .hamburger {
@@ -664,25 +639,19 @@
             }
 
             .nav-menu {
-                /* Karena hamburger sudah di kanan, menu dropdown harus mulai dari kanan */
                 left: auto;
                 right: 0;
                 width: 30%; 
-
                 position: fixed;
                 top: 60px;
                 flex-direction: column;
                 background: rgba(49, 54, 63, 0.98);
-                
-                /* Mengganti animasi slide/fade dengan display: none/flex */
                 display: none;
                 padding: 1.5rem 2rem;
                 gap: 0.5rem;
-                
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             }
             
-            /* Navbar tetap menggunakan Flexbox Order untuk menukar posisi hanya pada mobile */
             .navbar {
                 display: flex;
                 justify-content: space-between;
@@ -690,7 +659,6 @@
             }
 
             .nav-menu.active {
-                /* Tampilkan menu tanpa transisi (langsung muncul) */
                 display: flex; 
             }
             
@@ -704,12 +672,10 @@
                 padding: 0.4rem 0;
             }
 
-
             .story-content {
                 grid-template-columns: 1fr;
             }
 
-            /* Sesuaikan tinggi Before-After di mobile agar tetap responsif */
             .comparison-container {
                 aspect-ratio: 16 / 9; 
                 height: auto; 
@@ -717,30 +683,25 @@
         }
 
         @media (max-width: 480px) {
-            /* GALERI TETAP 2 KOLOM */
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            /* PROCESS TETAP 1 KOLOM DI MOBILE SANGAT KECIL */
             .process-cards {
                 grid-template-columns: 1fr;
-                gap: 1rem; /* Sedikit perkecil jarak di layar sangat kecil */
+                gap: 1rem;
             }
             
-            /* JOURNAL JUGA 1 KOLOM DI MOBILE SANGAT KECIL */
             .journal-cards {
                 grid-template-columns: 1fr;
-                gap: 1rem; /* Sedikit perkecil jarak di layar sangat kecil */
+                gap: 1.5rem;
             }
 
-            /* Story Image di mobile dikecilkan sedikit */
             .story-image {
                 width: 200px;
                 height: 200px;
             }
 
-            /* Tambahkan padding agar menu dropdown di mobile terlihat lebih rapi */
             .nav-menu {
                 width: 60%; 
             }
@@ -754,13 +715,11 @@
         <div class="logo">
             <span style="color: #76ABAE;">Linnopixel</span>
         </div>
-        <!-- Menu hamburger dipindahkan ke kanan -->
         <div class="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
-        <!-- Menu itu sendiri -->
         <ul class="nav-menu">
             <li><a href="#home">Home</a></li>
             <li><a href="#story">Story</a></li>
@@ -774,7 +733,6 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <!-- Layer Parallax untuk Background -->
         <div class="parallax-layer" id="parallaxLayer"></div> 
         
         <h1>Berawal dari Penasaran</h1>
@@ -786,17 +744,14 @@
     <section class="story" id="story">
         <h2 class="story-header">Sedikit Cerita</h2>
         <div class="story-content">
-            <!-- Foto Profil 1:1 (Lingkaran) -->
             <div class="story-image">
                 <img src="https://placehold.co/250x250/76ABAE/222831?text=Kreator+Foto+Profil" alt="Foto Profil Kreator">
             </div>
             
-            <!-- Pembungkus Teks -->
             <div class="story-text-wrapper">
                 <div class="story-text">
                     <p>Awalnya hanya sekedar suka mengakses banyak hal random di internet, lalu mulai ingin tau dimana posisi rumah, tempat dimana dia sering berkumpul bersama teman-teman nya hingga sekolahnya. Dari situlah muncul ketertarikan. Memperbesar jalan, menelusuri gang, dan memperhatikan warna langit.</p>
                 </div>
-                <!-- Tambahan Quote untuk mempercantik layout -->
                 <div class="story-quote">
                     <p>"sekedar suka mengakses banyak hal random di internet"</p>
                 </div>
@@ -825,42 +780,36 @@
     <section class="gallery" id="gallery">
         <h2 class="section-title">Koleksi Foto</h2>
         <div class="gallery-grid">
-            <!-- Gallery Item 1 -->
             <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi')">
                 <img src="https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi" alt="Cahaya Pagi di Gang Sepi" onerror="this.onerror=null; this.src='https://placehold.co/400x500/2980b9/ffffff?text=Gang+Sepi';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Cahaya Pagi di Gang Sepi</h4>
                 </div>
             </div>
-            <!-- Gallery Item 2 -->
             <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota')">
                 <img src="https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota" alt="Persimpangan Kota yang Ramai" onerror="this.onerror=null; this.src='https://placehold.co/400x500/e67e22/ffffff?text=Persimpangan+Kota';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Persimpangan Kota yang Ramai</h4>
                 </div>
             </div>
-            <!-- Gallery Item 3 -->
             <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial')">
                 <img src="https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial" alt="Pantai dari Ketinggian" onerror="this.onerror=null; this.src='https://placehold.co/400x500/16a085/ffffff?text=Pantai+Aerial';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Pantai dari Ketinggian</h4>
                 </div>
             </div>
-            <!-- Gallery Item 4 -->
             <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau')">
                 <img src="https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau" alt="Hamparan Sawah Hijau" onerror="this.onerror=null; this.src='https://placehold.co/400x500/27ae60/ffffff?text=Sawah+Hijau';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Hamparan Sawah Hijau</h4>
                 </div>
             </div>
-            <!-- Gallery Item 5 -->
             <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan')">
                 <img src="https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan" alt="Senja di Pelabuhan" onerror="this.onerror=null; this.src='https://placehold.co/400x500/c0392b/ffffff?text=Senja+Pelabuhan';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Senja di Pelabuhan</h4>
                 </div>
             </div>
-            <!-- Gallery Item 6 -->
             <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota')">
                 <img src="https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota" alt="Malam di Pusat Kota" onerror="this.onerror=null; this.src='https://placehold.co/400x500/8e44ad/ffffff?text=Malam+Kota';" loading="lazy">
                 <div class="gallery-overlay">
@@ -879,9 +828,7 @@
             <span>After</span>
         </div>
         <div class="comparison-container">
-            <!-- Before Image -->
             <img class="comparison-img" src="https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah" alt="Citra Mentah Sebelum Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/444444/FFFFFF?text=Citra+Mentah';" loading="lazy">
-            <!-- After Image (initially clipped) -->
             <img class="comparison-img after-img" src="https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai" alt="Karya Setelah Edit" onerror="this.onerror=null; this.src='https://placehold.co/800x450/76ABAE/222831?text=Karya+Selesai';" loading="lazy">
             <div class="slider-line" id="sliderLine">
                 <div class="slider-handle">
@@ -898,7 +845,6 @@
         <div class="journal-cards">
             <div class="journal-card">
                 <div class="journal-img">
-                    <!-- Placeholder Image -->
                     <img src="jurnal/gunung.jpg" alt="Gunung dan Jalan">
                 </div>
                 <div class="journal-content">
@@ -908,7 +854,6 @@
             </div>
             <div class="journal-card">
                 <div class="journal-img">
-                    <!-- Placeholder Image -->
                     <img src="jurnal/satelit.png" alt="Peta Satelit">
                 </div>
                 <div class="journal-content">
@@ -926,9 +871,7 @@
             <div class="contact-subtitle">Kalau ada pertanyaan, mau kasih saran, atau sekadar nyapa, hubungi lewat media sosial di bawah ini.</div>
             <div class="social-icons">
                 <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <!-- Link sosial media placeholder -->
                 <a href="#" aria-label="Github"><i class="fa-brands fa-github"></i></a>
-                <!-- Link sosial media placeholder -->
                 <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
                 <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
@@ -943,49 +886,48 @@
     <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox">
         <i class="fa-solid fa-xmark lightbox-close" onclick="closeLightbox()"></i>
-        <!-- Gambar akan diisi oleh JavaScript -->
         <img id="lightboxImg" src="" alt="Gambar Galeri Besar">
     </div>
 
     <script>
-        // --- LOGIC BARU UNTUK EFEK PARALAKS ---
+        // Parallax Effect - Smooth for All Devices
         const parallaxLayer = document.getElementById('parallaxLayer');
         const heroSection = document.getElementById('home');
-        const PARALLAX_SPEED = 0.5; // Kecepatan pergerakan (semakin kecil, semakin lambat)
-
+        
+        // Same speed for both mobile and desktop for consistency
+        const PARALLAX_SPEED = 0.5;
+        
         function handleParallax() {
-            // Dapatkan posisi scroll saat ini
             const scrollTop = window.pageYOffset; 
-            
-            // Dapatkan posisi relatif bagian hero dari bagian atas viewport
             const heroRect = heroSection.getBoundingClientRect();
             
-            // Hitung seberapa jauh elemen bergerak ke atas (offset)
-            // Hanya berlaku saat bagian hero masih terlihat (di atas 0)
             let offset = 0;
             if (heroRect.top < window.innerHeight && heroRect.bottom > 0) {
-                 // Gunakan scrollTop untuk pergerakan halus
                 offset = scrollTop * PARALLAX_SPEED; 
             }
             
-            // Terapkan transformasi (pergeseran ke atas)
             parallaxLayer.style.transform = `scale(1.1) translateY(${offset}px)`;
         }
 
-        // Tambahkan event listener untuk scroll
-        window.addEventListener('scroll', handleParallax);
-        // Panggil saat dimuat untuk mengatur posisi awal
-        window.onload = handleParallax; 
+        // Use requestAnimationFrame for smooth 60fps on all devices
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleParallax();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
         
-        // --- END: LOGIC BARU UNTUK EFEK PARALAKS ---
-
+        window.onload = handleParallax;
 
         // Hamburger Menu
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
 
         hamburger.addEventListener('click', () => {
-            // Mengganti toggle class untuk menyembunyikan/menampilkan menu secara instan
             navMenu.classList.toggle('active');
         });
 
@@ -1025,7 +967,7 @@
         // Mouse events
         sliderLine.addEventListener('mousedown', (e) => {
             isDragging = true;
-            updateSlider(e); // Update immediately on click
+            updateSlider(e);
         });
         document.addEventListener('mouseup', () => isDragging = false);
         document.addEventListener('mousemove', updateSlider);
@@ -1033,13 +975,13 @@
         // Touch events
         sliderLine.addEventListener('touchstart', (e) => {
             isDragging = true;
-            e.preventDefault(); // Prevent scrolling while dragging
+            e.preventDefault();
             updateSlider(e);
         });
         document.addEventListener('touchend', () => isDragging = false);
         document.addEventListener('touchmove', (e) => {
             if (isDragging) {
-                e.preventDefault(); // Prevent scrolling while dragging
+                e.preventDefault();
                 updateSlider(e);
             }
         });
@@ -1047,12 +989,11 @@
         comparisonContainer.addEventListener('click', updateSlider);
 
         // Lightbox
-        // Fungsi openLightbox diubah untuk mengambil URL gambar dari parameter kedua
         function openLightbox(element, imgUrl) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
             
-            lightboxImg.src = imgUrl; // Set URL gambar ke elemen <img>
+            lightboxImg.src = imgUrl;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -1061,8 +1002,7 @@
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('active');
             document.body.style.overflow = 'auto';
-            // Kosongkan src saat menutup lightbox untuk efisiensi
-            document.getElementById('lightboxImg').src = ""; 
+            document.getElementById('lightboxImg').src = "";
         }
 
         // Close lightbox with Escape key
@@ -1079,7 +1019,7 @@
             }
         });
 
-        // Smooth scroll for CTA button
+        // Smooth scroll for CTA button and nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
