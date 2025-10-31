@@ -14,11 +14,13 @@
             box-sizing: border-box;
         }
 
+        /* PALET WARNA BARU: Gelap, Hangat, dan Kontras */
         :root {
-            --bg-primary: #222831;
-            --bg-secondary: #31363F;
-            --accent: #76ABAE;
-            --text-primary: #EEEEEE;
+            --bg-primary: #222831; /* Hitam Tua (Dominan) */
+            --bg-secondary: #393E46; /* Abu-abu Gelap Menengah (Latar Belakang Kartu/Sekunder) */
+            --accent: #948979; /* Coklat Kusam / Aksen Hangat */
+            --text-primary: #DFD0B8; /* Krem Terang (Teks Utama) */
+            --text-secondary: rgba(223, 208, 184, 0.7); /* Teks Sekunder dengan Opacity */
         }
 
         html {
@@ -38,7 +40,8 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(49, 54, 63, 0.9);
+            /* Menggunakan warna yang kontras sedikit lebih gelap dari primary */
+            background: rgba(34, 40, 49, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 5%;
             display: flex;
@@ -54,7 +57,6 @@
             gap: 0.5rem;
             font-size: clamp(1.2rem, 2vw, 1.5rem);
             font-weight: 600;
-            /* Warna teks MICHELLINO (putih) */
             color: var(--text-primary); 
             order: -1; 
         }
@@ -91,12 +93,11 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            /* Warna ikon hamburger (putih) */
             background: var(--text-primary); 
             transition: all 0.3s ease;
         }
 
-        /* Hero Section (Tanpa Parallax) */
+        /* Hero Section */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -125,7 +126,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Overlay Gelap */
+            /* Overlay Gelap, menggunakan warna primary baru */
             background: rgba(34, 40, 49, 0.7); 
             z-index: 1;
         }
@@ -149,7 +150,8 @@
 
         .cta-button {
             background: var(--accent);
-            color: var(--bg-primary);
+            /* Warna teks tombol menggunakan warna yang kontras dengan accent, yaitu warna primary */
+            color: var(--bg-primary); 
             padding: 1rem 2.5rem;
             border: none;
             border-radius: 50px;
@@ -161,8 +163,10 @@
 
         .cta-button:hover {
             background: var(--text-primary);
+            color: var(--bg-primary); /* Ubah warna teks hover menjadi warna primary */
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(118, 171, 174, 0.3);
+            /* Box shadow menggunakan warna accent baru */
+            box-shadow: 0 10px 20px rgba(148, 137, 121, 0.3); 
         }
 
         /* Story Section */
@@ -189,12 +193,13 @@
         .story-image {
             width: 250px; 
             height: 250px;
-            background: var(--bg-secondary);
+            /* Menggunakan warna secondary/accent baru untuk latar/border */
+            background: var(--bg-secondary); 
             border-radius: 50%;
             overflow: hidden;
             margin-bottom: 2rem;
             border: 5px solid var(--accent);
-            box-shadow: 0 0 0 10px rgba(118, 171, 174, 0.2);
+            box-shadow: 0 0 0 10px rgba(148, 137, 121, 0.2);
             flex-shrink: 0;
         }
 
@@ -225,8 +230,10 @@
         
         .story-quote {
             padding: 2rem;
-            background: var(--bg-secondary);
-            border-left: 5px solid var(--accent);
+            /* Menggunakan warna secondary baru */
+            background: var(--bg-secondary); 
+            /* Border menggunakan warna accent baru */
+            border-left: 5px solid var(--accent); 
             border-radius: 8px;
             margin-top: 2rem;
             text-align: left;
@@ -244,7 +251,8 @@
         /* Process Section */
         .process {
             padding: 5rem 5%;
-            background: var(--bg-secondary);
+            /* Menggunakan warna secondary baru */
+            background: var(--bg-secondary); 
         }
 
         .section-title {
@@ -263,15 +271,17 @@
         }
 
         .process-card {
-            background: var(--bg-primary);
+            /* Menggunakan warna primary baru */
+            background: var(--bg-primary); 
             padding: 2rem;
             border-radius: 14px;
             text-align: center;
         }
 
         .process-card i {
+            /* Menggunakan warna accent baru */
             font-size: 3rem;
-            color: var(--accent);
+            color: var(--accent); 
             margin-bottom: 1rem;
         }
 
@@ -282,7 +292,7 @@
 
         .process-card p {
             font-size: clamp(0.9rem, 1.5vw, 1rem);
-            color: rgba(238, 238, 238, 0.8);
+            color: var(--text-secondary);
         }
 
         /* Gallery Section */
@@ -310,7 +320,8 @@
 
         .gallery-item:hover {
             transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(118, 171, 174, 0.3);
+            /* Box shadow menggunakan warna accent baru */
+            box-shadow: 0 10px 30px rgba(148, 137, 121, 0.3);
         }
 
         .gallery-item img {
@@ -330,7 +341,8 @@
             left: 0;
             right: 0;
             padding: 10px;
-            background: linear-gradient(transparent, rgba(34, 40, 49, 0.596));
+            /* Gradient menggunakan warna primary baru */
+            background: linear-gradient(transparent, rgba(34, 40, 49, 0.796));
             transform: translateY(100%);
             transition: transform 0.3s ease;
             border-bottom-left-radius: 10px;
@@ -344,15 +356,17 @@
         .gallery-overlay h4 {
             font-size: 13px; 
             font-weight: 100; 
-            color: cornsilk;
+            color: var(--text-primary);
             margin-bottom: -4px;
+            color: rgb(255, 253, 240);
         }
 
         .view-all-btn {
             display: block;
             margin: 0 auto;
             background: transparent;
-            border: 2px solid var(--accent);
+            /* Border menggunakan warna accent baru */
+            border: 2px solid var(--accent); 
             color: var(--accent);
             padding: 0.8rem 2rem;
             border-radius: 50px;
@@ -369,7 +383,8 @@
         /* Before-After Section */
         .before-after {
             padding: 5rem 5%;
-            background: var(--bg-secondary);
+            /* Menggunakan warna secondary baru */
+            background: var(--bg-secondary); 
         }
 
         .comparison-container {
@@ -402,7 +417,8 @@
             position: absolute;
             width: 3px;
             height: 100%;
-            background: var(--accent);
+            /* Menggunakan warna accent baru */
+            background: var(--accent); 
             left: 50%;
             top: 0;
             transform: translateX(-50%);
@@ -417,12 +433,13 @@
             transform: translate(-50%, -50%);
             width: 50px;
             height: 50px;
-            background: var(--accent);
+            /* Menggunakan warna accent baru */
+            background: var(--accent); 
+            color: var(--bg-primary); /* Warna teks handle kontras dengan accent */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--bg-primary);
             font-size: 1.5rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
@@ -459,7 +476,8 @@
         }
 
         .journal-card {
-            background: var(--bg-secondary);
+            /* Menggunakan warna secondary baru */
+            background: var(--bg-secondary); 
             border-radius: 14px;
             overflow: hidden;
         }
@@ -493,19 +511,21 @@
 
         .journal-content h3 {
             font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            /* Menggunakan warna accent baru */
+            color: var(--accent); 
             margin-bottom: 0.8rem;
-            color: var(--accent);
         }
 
         .journal-content p {
             font-size: clamp(0.9rem, 1.5vw, 1rem);
-            color: rgba(238, 238, 238, 0.8);
+            color: var(--text-secondary);
             font-style: italic;
         }
 
         /* Contact Section */
         .contact {
             padding: 5rem 5%;
+            background: var(--bg-primary); /* Pastikan ini sesuai dengan warna primary */
         }
 
         .contact-content {
@@ -517,7 +537,7 @@
         .contact-subtitle {
             font-size: clamp(1rem, 1.8vw, 1.2rem);
             margin-bottom: 2rem;
-            color: rgba(238, 238, 238, 0.8);
+            color: var(--text-secondary);
         }
 
         .social-icons {
@@ -528,7 +548,8 @@
         }
 
         .social-icons a {
-            color: var(--accent);
+            /* Menggunakan warna accent baru */
+            color: var(--accent); 
             font-size: 2rem;
             transition: all 0.3s ease;
         }
@@ -540,15 +561,16 @@
 
         /* Footer */
         .footer {
-            background: var(--bg-primary);
-            border-top: 1px solid rgba(118, 171, 174, 0.3);
+            background: var(--bg-secondary); /* Menggunakan warna secondary baru */
+            /* Border menggunakan warna accent baru */
+            border-top: 1px solid rgba(148, 137, 121, 0.3); 
             padding: 3rem 5%;
             text-align: center;
         }
 
         .footer p {
             font-size: clamp(0.9rem, 1.5vw, 1rem);
-            color: rgba(238, 238, 238, 0.7);
+            color: rgba(223, 208, 184, 0.7); /* Warna teks footer */
         }
 
         /* Lightbox */
@@ -642,11 +664,11 @@
                 position: fixed;
                 top: 60px;
                 flex-direction: column;
-                background: rgba(49, 54, 63, 0.98);
+                /* Menggunakan warna primary baru untuk menu mobile */
+                background: rgba(34, 40, 49, 0.98); 
                 display: none;
                 padding: 1.5rem 2rem;
                 gap: 0.5rem;
-                /* Hapus box-shadow agar tidak ada bayangan saat menu terbuka */
                 box-shadow: none; 
             }
             
@@ -658,7 +680,6 @@
 
             .nav-menu.active {
                 display: flex; 
-                /* Pastikan box-shadow tetap none saat active, meskipun sudah di set di atas */
                 box-shadow: none; 
             }
             
@@ -748,7 +769,7 @@
             
             <div class="story-text-wrapper">
                 <div class="story-text">
-                    <p>Iseng browsing Google Maps, saya mulai sering ngedit screenshoot dari banyak tempat entah itu rumah, tempat nongkrong, atau sekolah menjadi konten foto.</p>
+                    <p>Iseng browsing Google Maps, jadi sering ngedit screenshoot dari banyak tempat entah itu rumah, tempat nongkrong, atau sekolah buat konten foto.</p>
                 </div>
                 <div class="story-quote">
                     <p>Proses kreatif adalah tentang pencarian yang tak kenal lelah, pertemuan yang tak terduga, dan pengeditan yang memberi makna.</p>
@@ -779,37 +800,37 @@
         <div class="gallery-grid">
             <!-- Placeholder images diperbarui agar lebih konsisten -->
             <div class="gallery-item" onclick="openLightbox(this, 'koleksi/taman-maluku.jpeg')">
-                <img src="koleksi/taman-maluku.jpeg" alt="Taman Maluku" onerror="this.onerror=null; this.src='https://placehold.co/400x500/31363F/EEEEEE?text=Gang+Sepi';" loading="lazy">
+                <img src="koleksi/taman-maluku.jpeg" alt="Taman Maluku" onerror="this.onerror=null; this.src='https://placehold.co/400x500/222831/DFD0B8?text=Gang+Sepi';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Taman Maluku</h4>
                 </div>
             </div>
             <div class="gallery-item" onclick="openLightbox(this, 'koleksi/jalan.jpeg')">
-                <img src="koleksi/jalan.jpeg" alt="Persimpangan Kota yang Ramai" onerror="this.onerror=null; this.src='https://placehold.co/400x500/31363F/EEEEEE?text=Persimpangan+Kota';" loading="lazy">
+                <img src="koleksi/jalan.jpeg" alt="Persimpangan Kota yang Ramai" onerror="this.onerror=null; this.src='https://placehold.co/400x500/222831/DFD0B8?text=Persimpangan+Kota';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Jl. Ahmad Yani, Jember</h4>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/31363F/EEEEEE?text=Pantai+Aerial')">
-                <img src="https://placehold.co/400x500/31363F/EEEEEE?text=Pantai+Aerial" alt="Pantai dari Ketinggian" onerror="this.onerror=null; this.src='https://placehold.co/400x500/31363F/EEEEEE?text=Pantai+Aerial';" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/222831/DFD0B8?text=Pantai+Aerial')">
+                <img src="https://placehold.co/400x500/222831/DFD0B8?text=Pantai+Aerial" alt="Pantai dari Ketinggian" onerror="this.onerror=null; this.src='https://placehold.co/400x500/222831/DFD0B8?text=Pantai+Aerial';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Pantai dari Ketinggian</h4>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/31363F/EEEEEE?text=Sawah+Hijau')">
-                <img src="https://placehold.co/400x500/31363F/EEEEEE?text=Sawah+Hijau" alt="Hamparan Sawah Hijau" onerror="this.onerror=null; this.src='https://placehold.co/400x500/31363F/EEEEEE?text=Sawah+Hijau';" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/222831/DFD0B8?text=Sawah+Hijau')">
+                <img src="https://placehold.co/400x500/222831/DFD0B8?text=Sawah+Hijau" alt="Hamparan Sawah Hijau" onerror="this.onerror=null; this.src='https://placehold.co/400x500/222831/DFD0B8?text=Sawah+Hijau';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Hamparan Sawah Hijau</h4>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/31363F/EEEEEE?text=Senja+Pelabuhan')">
-                <img src="https://placehold.co/400x500/31363F/EEEEEE?text=Senja+Pelabuhan" alt="Senja di Pelabuhan" onerror="this.onerror=null; this.src='https://placehold.co/400x500/31363F/EEEEEE?text=Senja+Pelabuhan';" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/222831/DFD0B8?text=Senja+Pelabuhan')">
+                <img src="https://placehold.co/400x500/222831/DFD0B8?text=Senja+Pelabuhan" alt="Senja di Pelabuhan" onerror="this.onerror=null; this.src='https://placehold.co/400x500/222831/DFD0B8?text=Senja+Pelabuhan';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Senja di Pelabuhan</h4>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/31363F/EEEEEE?text=Malam+Kota')">
-                <img src="https://placehold.co/400x500/31363F/EEEEEE?text=Malam+Kota" alt="Malam di Pusat Kota" onerror="this.onerror=null; this.src='https://placehold.co/400x500/31363F/EEEEEE?text=Malam+Kota';" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this, 'https://placehold.co/400x500/222831/DFD0B8?text=Malam+Kota')">
+                <img src="https://placehold.co/400x500/222831/DFD0B8?text=Malam+Kota" alt="Malam di Pusat Kota" onerror="this.onerror=null; this.src='https://placehold.co/400x500/222831/DFD0B8?text=Malam+Kota';" loading="lazy">
                 <div class="gallery-overlay">
                     <h4>Malam di Pusat Kota</h4>
                 </div>
@@ -821,7 +842,8 @@
     <!-- Before-After Section -->
     <section class="before-after" id="before-after">
         <h2 class="section-title">Before & After</h2>
-        <p style="text-align: center; margin-top: -40px; color: #7a7a7a;">*geser garisnya*</p>
+        <!-- Ganti warna teks p menjadi warna accent baru -->
+        <p style="text-align: center; margin-top: -40px; color: var(--accent);">*geser garisnya*</p> 
         <div class="comparison-labels">
             <span>Before</span>
             <span>After</span>
@@ -889,7 +911,6 @@
     </div>
 
     <script>
-        // Hamburger Menu Toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -897,7 +918,6 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
